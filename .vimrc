@@ -20,7 +20,7 @@ set wildmenu
 set wildmode=list:longest
 
 set number			" show line number
-set relativenumber
+" set relativenumber		" show number's realtive to current line
 set cursorline			" line with cursor is highlited
 set mouse=a			" Enable mouse use
 set clipboard+=unnamedplus	" Same clipboard for vim and system
