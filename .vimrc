@@ -99,7 +99,7 @@ let g:netrw_banner=0
 let g:netrw_liststyle=3
 let g:netrw_winsize=20
 let g:netrw_list_hide=netrw_gitignore#Hide()
-nnoremap <silent> <C-n> :Lexplore<CR>
+nnoremap <silent> <C-n> :Lexplore!<CR>
 
 """ Integrated terminal opens in insert mode and mapped to Ctrl t
 function! OpenTerminal()
