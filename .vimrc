@@ -37,13 +37,9 @@ nnoremap <leader>h :nohl<CR>	" clear seach higlights
 set showcmd " show command typed in last line
 set showmode
 
-
 """ Enable folding
 set foldmethod=indent
 set foldlevel=99
-
-""" Folding with spacebar
-nnoremap <space> za
 
 """ ii for escape
 inoremap ii <Esc>
