@@ -20,7 +20,7 @@ set wildmenu
 set wildmode=list:longest
 
 set number			" show line number
-" set relativenumber		" show number's realtive to current line
+" set relativenumber		" number's show realtive to current line
 set cursorline			" line with cursor is highlited
 set mouse=a			" Enable mouse use
 set clipboard+=unnamedplus	" Same clipboard for vim and system
@@ -61,10 +61,10 @@ nnoremap <c-left> <c-w>>
 nnoremap <c-right> <c-w><
 
 """ Moving lines up and down with alt j k in normal and visual
-nnoremap <silent> <A-k> :m .-2<CR>==
-nnoremap <silent> <A-j> :m .+1<CR>==
-vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+nnoremap <silent> <up> :m .-2<CR>==
+nnoremap <silent> <down> :m .+1<CR>==
+vnoremap <silent> <up> :m '<-2<CR>gv=gv
+vnoremap <silent> <down> :m '>+1<CR>gv=gv
 
 """ python PEP8 guide
 au BufNewFile,BufRead *.py
