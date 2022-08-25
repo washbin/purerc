@@ -17,7 +17,7 @@ set path+=**
 set wildignore+=**/.venv/**
 set wildignore+=**/node_modules/**
 set wildmenu
-set wildmode=list:longest
+set wildmode=list:longest,list:full
 
 set number			" show line number
 " set relativenumber		" number's show realtive to current line
@@ -52,15 +52,23 @@ nnoremap <C-l> <C-w>l
 
 """ Resize split windows
 nnoremap <C-up> <C-w>+
-nnoremap <c-down> <c-w>-
-nnoremap <c-left> <c-w>>
-nnoremap <c-right> <c-w><
+nnoremap <C-down> <C-w>-
+nnoremap <C-right> <C-w>>
+nnoremap <C-left> <C-w><
 
-""" Moving lines up and down with alt j k in normal and visual
+""" Moving lines up and down with up and down in normal and visual
 nnoremap <silent> <up> :m .-2<CR>==
 nnoremap <silent> <down> :m .+1<CR>==
 vnoremap <silent> <up> :m '<-2<CR>gv=gv
 vnoremap <silent> <down> :m '>+1<CR>gv=gv
+
+""" Switch buffers with left and right
+nnoremap <silent> <left> :bp<CR>
+nnoremap <silent> <right> :bn<CR>
+
+""" Indenting in visual mode persistence
+vnoremap > >gv
+vnoremap < <gv
 
 """ python PEP8 guide
 au BufNewFile,BufRead *.py
@@ -132,6 +140,24 @@ set statusline=
 set statusline+=\ %F\ %M\ %Y\ %R
 set statusline+=%=
 set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+
+" Credit: Mahesh C. Regmi (Handsome Devops 20XX)
+" Zoom Toggle for splits
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>z :ZoomToggle<CR>
+
 
 """ Prevent creation of swap files
 " set nobackup
